@@ -77,8 +77,8 @@ public class Garage {
 	
 	public float fixVehicle(int ID, Vehicle[] list, int arrayIndex)
 	{
-		float[] cost = calculateBill();
-		return cost[arrayIndex];
+		float cost = billsForWheels(list[arrayIndex]);
+		return cost;
 	}
 	
 	public void emptyGarage(Vehicle[] list)

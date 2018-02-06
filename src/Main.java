@@ -81,7 +81,7 @@ public class Main {
 			System.out.println("vehicle removed");
 		
 		System.out.println("");
-		System.out.println("Calculating bill");
+		System.out.println("Calculating bill for index 2");
 		System.out.println(garage.fixVehicle(786543, garage.vehicles, 2));
 		
 		System.out.println("");
@@ -91,6 +91,11 @@ public class Main {
 			if(garage.vehicles[i] == null)
 				System.out.println(" (" + i + ") is empty!");
 		}
+		
+		System.out.println("");
+		System.out.println("6 : Paint Wizard");
+		PaintWizard paintWizard = new PaintWizard();
+		paintWizard.calculatCostPerSquareMeter();
 		
 	}
 	
