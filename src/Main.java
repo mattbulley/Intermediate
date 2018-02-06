@@ -48,8 +48,27 @@ public class Main {
 		car1.numberOfDoors = 3;
 		car1.numberOfWheels = 4;
 		
+		Motorcycle motorCycle1 = new Motorcycle();
+		motorCycle1.typeOfVehicle = "Bike";
+		motorCycle1.numberOfDoors = 0;
+		motorCycle1.numberOfWheels = 2;
+		
+		Bus bus1 = new Bus();
+		bus1.typeOfVehicle = "Bus";
+		bus1.numberOfDoors = 1;
+		bus1.numberOfWheels = 8;
+		
 		Garage garage = new Garage();
 		garage.vehicles[0] = car1;
+		garage.vehicles[1] = motorCycle1;
+		garage.vehicles[2] = bus1;
+		
+		float[] bills = garage.calculateBill();
+		for(int i = 0; i < bills.length; i++)
+		{
+			
+			System.out.println(bills[i]);
+		}
 	}
 	
 	public static int BlackJack(int val1, int val2)
