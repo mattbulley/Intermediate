@@ -57,6 +57,7 @@ public class PaintWizard {
 			System.out.println((calc[i] / total)  + " buckets of paint.");
 		}
 		
+		s.close();
 		return;
 	}
 	
