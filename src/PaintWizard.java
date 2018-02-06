@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class PaintWizard {
 	
@@ -10,6 +11,8 @@ public class PaintWizard {
 	public void calculatCostPerSquareMeter()
 	{
 		float[] calc = new float[3];
+		float[] calc2 = new float[3];
+		int total = 0;
 		
 		for(int i = 0; i < paints.length; i++)
 		{
@@ -23,12 +26,36 @@ public class PaintWizard {
 		for(int i = 0; i < paints.length; i++)
 		{
 			System.out.print(paints[i].name + " : ");
-			
-			System.out.println("£" + calc[i] / paints[i].costPerLitre + " per Sq Meter");
+			calc2[i] = (calc[i] / paints[i].costPerLitre);
+			System.out.println("£" + calc2[i]  + " per Sq Meter");
 		}
 		
 		System.out.println("");
 		System.out.println("DuluxourousPaints is the cheapest!");
+		System.out.println("What dimensions are your room? ... ");
+		System.out.println("Width: ");
+		Scanner s = new Scanner(System.in);
+		int dimensionsWidth = s.nextInt();
+		System.out.println("Height: ");
+		int dimensionsHeight = s.nextInt();
+		System.out.println("Depth: ");
+		int dimensionsDepth = s.nextInt();
+		
+		System.out.println("Dimensions Correct?(1 or 0) : " + dimensionsWidth + " x " + dimensionsHeight + " x " + dimensionsDepth);
+		
+		int yes = s.nextInt();
+		if(yes == 1) {
+			total = ((dimensionsWidth * dimensionsHeight) * 2) + ((dimensionsDepth * dimensionsHeight) * 2);
+			System.out.println("Total area = " + total);
+		}
+		
+		for(int i = 0; i < paints.length; i++)
+		{
+			System.out.print(paints[i].name + " : ");
+			
+			System.out.println("£" + (total * calc2[i])  + " for the room");
+			System.out.println((calc[i] / total)  + " buckets of paint.");
+		}
 		
 		return;
 	}
