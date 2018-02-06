@@ -42,6 +42,8 @@ public class Main {
 		
 		System.out.println();
 		searchPeople("Matt Bulley", personList);
+		System.out.println();
+		System.out.println("5 : Garage");
 		
 		Car car1 = new Car();
 		car1.typeOfVehicle = "Car";
@@ -63,12 +65,33 @@ public class Main {
 		garage.vehicles[1] = motorCycle1;
 		garage.vehicles[2] = bus1;
 		
-		float[] bills = garage.calculateBill();
-		for(int i = 0; i < bills.length; i++)
-		{
-			
-			System.out.println(bills[i]);
+		garage.calculateBill();
+		System.out.println("");
+		System.out.println("...Creating Vehicle");
+		Vehicle honda = garage.addVehicle(786543, "Car", "7XB3 532");
+		System.out.println("direct reference...");
+		System.out.println("ID: " + honda.ID + " Type: " + honda.type + " License: " + honda.licensePlate);
+		System.out.println("referenced from garage array...");
+		System.out.println("ID: " + garage.vehicles[3].ID + " Type: " + garage.vehicles[3].type + " License: " + garage.vehicles[3].licensePlate);
+		System.out.println("removing...");
+		garage.removeVehicle(786543, garage.vehicles);
+		if(garage.vehicles[3] != null)
+			System.out.println("ID: " + garage.vehicles[3].ID + " Type: " + garage.vehicles[3].type + " License: " + garage.vehicles[3].licensePlate);
+		else
+			System.out.println("vehicle removed");
+		
+		System.out.println("");
+		System.out.println("Calculating bill");
+		System.out.println(garage.fixVehicle(786543, garage.vehicles, 2));
+		
+		System.out.println("");
+		System.out.println("Emptying Garage...");
+		garage.emptyGarage(garage.vehicles);
+		for(int i = 0; i < garage.vehicles.length; i++) {
+			if(garage.vehicles[i] == null)
+				System.out.println(" (" + i + ") is empty!");
 		}
+		
 	}
 	
 	public static int BlackJack(int val1, int val2)

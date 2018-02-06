@@ -6,20 +6,21 @@ public class Garage {
 	public float[] calculateBill()
 	{
 		float[] bill = new float[10];
-		
-		for(int i = 0; i < vehicles.length; i++) // cycles through all vehicles in garage
+		for(Vehicle vehicle : vehicles) // cycles through all vehicles in garage
 		{
-			bill[i] = cycleThroughGarage(i, bill[i]);
+			if(vehicle != null) {
+				System.out.print(" " + vehicle.typeOfVehicle + " : ");
+				System.out.println("£" + billsForWheels(vehicle));
+			}
 		}
-			
-		
-		
 		return bill;
 	}
 	
-	public float cycleThroughGarage(int counter, float bill)
+	public float billsForWheels(Vehicle _vehicle)
 	{
-		switch(vehicles[counter].numberOfWheels)
+		float bill = 0f;
+		
+		switch(_vehicle.numberOfWheels)
 		{
 			case 1:
 				bill += 30.0f;
@@ -48,6 +49,43 @@ public class Garage {
 		}
 		
 		return bill;
+	}
+	
+	public Vehicle addVehicle(int ID, String type, String licensePlate)
+	{
+		Vehicle _vehicle = new Vehicle(ID, type, licensePlate);
+		for(int i = 0; i < this.vehicles.length; i++)
+		{
+			if(vehicles[i] == null) {
+				this.vehicles[i] = _vehicle;
+				return _vehicle;
+			}
+		}
+		return _vehicle;
+	}
+	
+	public void removeVehicle(int ID, Vehicle[] list) // TODO add parameters for vehicle type and license number
+	{
+		for(int i = 0; i < list.length; i++) {
+			if(list[i] != null) {
+				if(list[i].ID == ID) {
+					list[i] = null;
+				}
+			}
+		}
+	}
+	
+	public float fixVehicle(int ID, Vehicle[] list, int arrayIndex)
+	{
+		float[] cost = calculateBill();
+		return cost[arrayIndex];
+	}
+	
+	public void emptyGarage(Vehicle[] list)
+	{
+		for(int i = 0; i < list.length; i++) {
+				list[i] = null;
+		}
 	}
 	
 }
