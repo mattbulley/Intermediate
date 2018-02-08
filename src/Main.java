@@ -4,14 +4,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
-
+	static Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//Variables
-		int val1 = 20;
-		int val2 = 22;
+		
+		ident();
+		
 		
 		int x = 1;
 		int y = 1;
@@ -24,10 +26,9 @@ public class Main {
 		Person person3 = new Person();
 		person3.setData("Al", 21, "Odeon");
 		
+		selectChapter();
 		
-		System.out.println("1 : BlackJack");
-		BlackJack(val1, val2);
-		System.out.println();
+		
 		System.out.println("2 : UniqueSum");
 		UniqueSum(x, y, z);
 		System.out.println();
@@ -144,7 +145,143 @@ public class Main {
 		
 			
 		}
+		scanner.close();
 		
+	}
+	
+	public static void ident() {
+		System.out.println("\r\n" + 
+				"  _____       _                               _ _       _       \r\n" + 
+				" |_   _|     | |                             | (_)     | |      \r\n" + 
+				"   | |  _ __ | |_ ___ _ __ _ __ ___   ___  __| |_  __ _| |_ ___ \r\n" + 
+				"   | | | '_ \\| __/ _ \\ '__| '_ ` _ \\ / _ \\/ _` | |/ _` | __/ _ \\\r\n" + 
+				"  _| |_| | | | ||  __/ |  | | | | | |  __/ (_| | | (_| | ||  __/\r\n" + 
+				" |_____|_| |_|\\__\\___|_|  |_| |_| |_|\\___|\\__,_|_|\\__,_|\\__\\___|\r" + 
+				"                                                                \r" + 
+				
+				 
+				                                                                      
+				
+				" ____   ____   ____   ____   ____   ____   ____   ____   ____   ____  \r\n" + 
+				"|____| |____| |____| |____| |____| |____| |____| |____| |____| |____| \r\n" + 
+				"                                                                      \r\n" + 
+				
+				"");
+		
+		System.out.println("Created by Matt Bulley : Thursday, 8 February 2018");
+		System.out.println("");
+		contents();
+	
+	}
+	
+	public static void contents()
+	{
+		System.out.println("  Contents:");
+		System.out.println("");
+		System.out.println("	12  Blackjack");
+		System.out.println("	13  Unique Sum");
+		System.out.println("	14  Too Hot?");
+		System.out.println("	15  People");
+		System.out.println("	16  Garage");
+		System.out.println("	17  Junit");
+		System.out.println("	18  Library/TDD");
+		System.out.println("");
+		System.out.println("  Please enter a number:");
+	}
+	
+	public static void selectChapter() {
+		boolean incorrectInput = true;
+		int any = 0;
+		scanner.reset();
+		do {
+			
+			
+			try {
+					any = Integer.parseInt(scanner.nextLine());
+					incorrectInput = false;
+					if(any < 12 || any > 18)
+						incorrectInput = true;
+				} catch (Exception wrongInput) {
+					
+					System.out.println("");
+					System.out.println("Incorrect input! Please enter a valid difficulty");
+					
+					
+				}
+			
+			if(incorrectInput) {
+				System.out.println("");
+				System.out.println("Incorrect input! Please enter a valid difficulty");
+			}
+			
+		} while (incorrectInput);
+		
+		switch(any) {
+			case 12:
+				chapter1();
+				break;
+		
+		}
+		
+	}
+	
+	public static int returnInput() {
+		boolean incorrectInput = true;
+		int any = 0;
+		scanner.reset();
+		do {
+			
+			
+			try {
+					any = Integer.parseInt(scanner.nextLine());
+					incorrectInput = false;
+					if(any < 12 || any > 18)
+						incorrectInput = true;
+				} catch (Exception wrongInput) {
+					
+					System.out.println("");
+					System.out.println("Incorrect input! Please enter a valid difficulty");
+					
+					
+				}
+			
+			if(incorrectInput) {
+				System.out.println("");
+				System.out.println("Incorrect input! Please enter a valid difficulty");
+			}
+			
+		} while (incorrectInput);
+		
+		return any;
+	}
+	
+	public static void chapter1() {
+		System.out.println("");
+		int val1 = 20;
+		int val2 = 22;
+		System.out.println("			(12) -- Blackjack");
+		System.out.println("\r\n" + 
+				".------..------..------..------..------..------..------..------..------.\r\n" + 
+				"|B.--. ||L.--. ||A.--. ||C.--. ||K.--. ||J.--. ||A.--. ||C.--. ||K.--. |\r\n" + 
+				"| :(): || :/\\: || (\\/) || :/\\: || :/\\: || :(): || (\\/) || :/\\: || :/\\: |\r\n" + 
+				"| ()() || (__) || :\\/: || :\\/: || :\\/: || ()() || :\\/: || :\\/: || :\\/: |\r\n" + 
+				"| '--'B|| '--'L|| '--'A|| '--'C|| '--'K|| '--'J|| '--'A|| '--'C|| '--'K|\r\n" + 
+				"`------'`------'`------'`------'`------'`------'`------'`------'`------'\r\n"  
+				);
+		System.out.println("'Given 2 integer values greater than 0"
+				+ ", return whichever value is closest ");
+		System.out.println("to 21 without going over 21. If they both go over 21 then return 0. ");
+		System.out.println();
+		System.out.println("Enter integer 1:");
+		val1 = returnInput();
+		System.out.println("Enter integer 2:");
+		val2 = returnInput();
+		
+		BlackJack(val1, val2);
+		System.out.println();
+		System.out.println();
+		contents();
+		selectChapter();
 	}
 	
 	public static void writeFile(String _name, int _age, String _job, String _fileName) {
