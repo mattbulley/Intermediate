@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -96,6 +99,48 @@ public class Main {
 		System.out.println("6 : Paint Wizard");
 		PaintWizard paintWizard = new PaintWizard();
 		paintWizard.calculatCostPerSquareMeter();
+		
+		System.out.println("");
+		System.out.println("7 : Working With Files");
+		System.out.println("Creating array list of people...");
+		System.out.println("");
+		
+		List<Person> personArrayList = new ArrayList<Person>();
+		
+		personArrayList.add(new Person("Matt", 67, "QA"));
+		personArrayList.add(new Person("Bob", 32, "Shop Assistant"));
+		personArrayList.add(new Person("Steve", 567, "Sales"));
+		personArrayList.add(new Person("Amy", 212, "Management"));
+		personArrayList.add(new Person("Joe", 05, "Constulting"));
+		
+		for(Person person : personArrayList) {
+			System.out.println("NAME: " + person.name + " AGE: " + person.age + " JOB: " + person.jobTitle);
+			String fileName = person.name + ".txt";
+			 writeFile(person.name, person.age, person.jobTitle, fileName); 
+			
+		}
+		
+	}
+	
+	public static void writeFile(String _name, int _age, String _job, String _fileName) {
+		
+		try {
+			WriteFile2 data = new WriteFile2(_fileName, false);
+			WriteFile2 dataAppend = new WriteFile2(_fileName, true);
+			data.WriteToFile(_name);
+			dataAppend.WriteToFile(Integer.toString(_age));
+			dataAppend.WriteToFile(_job);
+		}
+		catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		System.out.println("Text File Written to");
+		
+	}
+	
+	public static void readFile(String _fileName) {
 		
 	}
 	
