@@ -13,93 +13,9 @@ public class Main {
 		//Variables
 		
 		ident();
-		
-		
-		int x = 1;
-		int y = 1;
-		int z = 2;
-		
-		Person person1 = new Person();
-		person1.setData("Matt Bulley", 23, "QA");
-		Person person2 = new Person();
-		person2.setData("Dan", 22, "Uni");
-		Person person3 = new Person();
-		person3.setData("Al", 21, "Odeon");
-		
 		selectChapter();
+
 		
-		
-		System.out.println("2 : UniqueSum");
-		UniqueSum(x, y, z);
-		System.out.println();
-		System.out.println("3 : Too Hot?");
-		System.out.println(TooHot(100, true));
-		System.out.println();
-		System.out.println("4 : People");
-	
-		
-		Person[] personList = new Person[3];
-		personList[0] = person1;
-		personList[1] = person2;
-		personList[2] = person3;
-		
-		for(int i = 0; i < personList.length; i++) {
-			System.out.println(personList[i].returnString());
-		}
-		
-		System.out.println();
-		searchPeople("Matt Bulley", personList);
-		System.out.println();
-		System.out.println("5 : Garage");
-		
-		Car car1 = new Car();
-		car1.typeOfVehicle = "Car";
-		car1.numberOfDoors = 3;
-		car1.numberOfWheels = 4;
-		
-		Motorcycle motorCycle1 = new Motorcycle();
-		motorCycle1.typeOfVehicle = "Bike";
-		motorCycle1.numberOfDoors = 0;
-		motorCycle1.numberOfWheels = 2;
-		
-		Bus bus1 = new Bus();
-		bus1.typeOfVehicle = "Bus";
-		bus1.numberOfDoors = 1;
-		bus1.numberOfWheels = 8;
-		
-		Garage garage = new Garage();
-		garage.vehicles[0] = car1;
-		garage.vehicles[1] = motorCycle1;
-		garage.vehicles[2] = bus1;
-		
-		garage.calculateBill();
-		System.out.println("");
-		System.out.println("...Creating Vehicle");
-		Vehicle honda = garage.addVehicle(786543, "Car", "7XB3 532");
-		System.out.println("direct reference...");
-		System.out.println("ID: " + honda.ID + " Type: " + honda.type + " License: " + honda.licensePlate);
-		System.out.println("referenced from garage array...");
-		System.out.println("ID: " + garage.vehicles[3].ID + " Type: " + garage.vehicles[3].type + " License: " + garage.vehicles[3].licensePlate);
-		System.out.println("removing...");
-		garage.removeVehicle(786543, garage.vehicles);
-		if(garage.vehicles[3] != null)
-			System.out.println("ID: " + garage.vehicles[3].ID + " Type: " + garage.vehicles[3].type + " License: " + garage.vehicles[3].licensePlate);
-		else
-			System.out.println("vehicle removed");
-		
-		System.out.println("");
-		System.out.println("Calculating bill for index 2");
-		System.out.println(garage.fixVehicle(786543, garage.vehicles, 2));
-		
-		System.out.println("");
-		System.out.println("Emptying Garage...");
-		garage.emptyGarage(garage.vehicles);
-		for(int i = 0; i < garage.vehicles.length; i++) {
-			if(garage.vehicles[i] == null)
-				System.out.println(" (" + i + ") is empty!");
-		}
-		
-		System.out.println("");
 		System.out.println("6 : Paint Wizard");
 		PaintWizard paintWizard = new PaintWizard();
 		paintWizard.calculatCostPerSquareMeter();
@@ -186,7 +102,7 @@ public class Main {
 		System.out.println("	17  Junit");
 		System.out.println("	18  Library/TDD");
 		System.out.println("");
-		System.out.println("  Please enter a number:");
+		System.out.println("  Please enter a number (0 to quit program):");
 	}
 	
 	public static void selectChapter() {
@@ -199,8 +115,7 @@ public class Main {
 			try {
 					any = Integer.parseInt(scanner.nextLine());
 					incorrectInput = false;
-					if(any < 12 || any > 18)
-						incorrectInput = true;
+					
 				} catch (Exception wrongInput) {
 					
 					System.out.println("");
@@ -218,7 +133,23 @@ public class Main {
 		
 		switch(any) {
 			case 12:
-				chapter1();
+				chapter12();
+				break;
+			case 13:
+				chapter13();
+				break;
+			case 14:
+				chapter14();
+				break;
+			case 15:
+				chapter15();
+				break;
+			case 16:
+				chapter16();
+				break;
+			case 0:
+				System.out.println("Goodbye");
+				System.exit(0);
 				break;
 		
 		}
@@ -235,8 +166,7 @@ public class Main {
 			try {
 					any = Integer.parseInt(scanner.nextLine());
 					incorrectInput = false;
-					if(any < 12 || any > 18)
-						incorrectInput = true;
+					
 				} catch (Exception wrongInput) {
 					
 					System.out.println("");
@@ -255,7 +185,8 @@ public class Main {
 		return any;
 	}
 	
-	public static void chapter1() {
+	
+	public static void chapter12() {
 		System.out.println("");
 		int val1 = 20;
 		int val2 = 22;
@@ -280,6 +211,226 @@ public class Main {
 		BlackJack(val1, val2);
 		System.out.println();
 		System.out.println();
+		contents();
+		selectChapter();
+	}
+	
+	public static void chapter13() {
+		int x = 1;
+		int y = 1;
+		int z = 2;
+		System.out.println("			(13) -- Unique Sum");
+		System.out.println("\r\n" + 
+				" __ __  ____   ____   ___   __ __    ___       _____ __ __  ___ ___ \r\n" + 
+				"|  |  ||    \\ |    | /   \\ |  |  |  /  _]     / ___/|  |  ||   |   |\r\n" + 
+				"|  |  ||  _  | |  | |     ||  |  | /  [_     (   \\_ |  |  || _   _ |\r\n" + 
+				"|  |  ||  |  | |  | |  Q  ||  |  ||    _]     \\__  ||  |  ||  \\_/  |\r\n" + 
+				"|  :  ||  |  | |  | |     ||  :  ||   [_      /  \\ ||  :  ||   |   |\r\n" + 
+				"|     ||  |  | |  | |     ||     ||     |     \\    ||     ||   |   |\r\n" + 
+				" \\__,_||__|__||____| \\__,_| \\__,_||_____|      \\___| \\__,_||___|___|\r\n" + 
+				"                                                                    \r\n" + 
+				"");
+		System.out.println("'Given 3 integer values, return their sum. If one value is the same as another value,\r\n" + 
+				"they do not count towards the sum. Aka only return the sum of unique numbers\r\n" + 
+				"given.'");
+		System.out.println();
+		System.out.println("Enter integer 1:");
+		x = returnInput();
+		System.out.println("Enter integer 2:");
+		y = returnInput();
+		System.out.println("Enter integer 3:");
+		z = returnInput();
+		UniqueSum(x, y, z);
+		System.out.println();
+		contents();
+		selectChapter();
+	}
+	
+	public static void chapter14() {
+		System.out.println("			(14) -- Too Hot?");
+		System.out.println("\r\n" + 
+				" ______   ___    ___       __ __   ___   ______  _____ \r\n" + 
+				"|      | /   \\  /   \\     |  |  | /   \\ |      |/     |\r\n" + 
+				"|      ||     ||     |    |  |  ||     ||      ||  Y  |\r\n" + 
+				"|_|  |_||  O  ||  O  |    |  _  ||  O  ||_|  |_||__|  |\r\n" + 
+				"  |  |  |     ||     |    |  |  ||     |  |  |     |__|\r\n" + 
+				"  |  |  |     ||     |    |  |  ||     |  |  |      __ \r\n" + 
+				"  |__|   \\___/  \\___/     |__|__| \\___/   |__|     |__|\r\n" + 
+				"                                                       \r\n" + 
+				"");
+		
+		System.out.println("'Given an integer value and a Boolean value, temperature and isSummer, if temperature\r\n" + 
+				"is between 60 and 90 (inclusive), unless its summer where the upper limit is\r\n" + 
+				"100 instead of 90. Return true if the temperature falls within the range, false otherwise.'");
+		System.out.println();
+		System.out.println("Enter integer:");
+		int integer = returnInput();
+		System.out.println("Enter boolean(1/0):");
+		int bool = returnInput();
+		boolean bool2 = false;
+		if(bool == 1)
+			bool2 = true;
+		if(bool == 0)
+			bool2 = false;
+		System.out.println(TooHot(integer, bool2));
+		System.out.println();
+		System.out.println();
+		contents();
+		selectChapter();
+	}
+	
+	public static void chapter15() {
+		Person person1 = new Person();
+		person1.setData("Matt Bulley", 23, "QA");
+		Person person2 = new Person();
+		person2.setData("Dan", 22, "Uni");
+		Person person3 = new Person();
+		person3.setData("Al", 21, "Odeon");
+		
+		System.out.println("			(15) -- People");
+		System.out.println("\r\n" + 
+				"  ____   U _____ u U  ___ u  ____      _     U _____ u \r\n" + 
+				"U|  _\"\\ u\\| ___\"|/  \\/\"_ \\/U|  _\"\\ u  |\"|    \\| ___\"|/ \r\n" + 
+				"\\| |_) |/ |  _|\"    | | | |\\| |_) |/U | | u   |  _|\"   \r\n" + 
+				" |  __/   | |___.-,_| |_| | |  __/   \\| |/__  | |___   \r\n" + 
+				" |_|      |_____|\\_)-\\___/  |_|       |_____| |_____|  \r\n" + 
+				" ||>>_    <<   >>     \\\\    ||>>_     //  \\\\  <<   >>  \r\n" + 
+				"(__)__)  (__) (__)   (__)  (__)__)   (_\")(\"_)(__) (__) \r\n" + 
+				"");
+	
+		System.out.println("");
+		System.out.println("Create a Person class that models the following:\r\n" + 
+				"• Name\r\n" + 
+				"• Age\r\n" + 
+				"• Job Title\r\n" + 
+				"And has a method to return all three of these in a formatted string. (Override the\r\n" + 
+				"toString() method!)\r\n" + 
+				"Create some example objects with this class.\r\n" + 
+				"Create an ArrayList and store those objects inside.\r\n" + 
+				"Use an enhanced for loop to output all of your people to the console.\r\n" + 
+				"Create a method that searches for the Person object by their name.");
+		
+		System.out.println("");
+		System.out.println("Enter any number to continue");
+		returnInput();
+		
+		System.out.println("Storing Objects...");
+		Person[] personList = new Person[3];
+		personList[0] = person1;
+		personList[1] = person2;
+		personList[2] = person3;
+		
+		System.out.println("Enter any number to continue");
+		returnInput();
+		
+		System.out.println("");
+		System.out.println("Outputting all people...");
+		System.out.println("");
+		for(int i = 0; i < personList.length; i++) {
+			System.out.println(personList[i].returnString());
+		}
+		System.out.println("");
+		System.out.println("Enter a word to search with:");
+		String str = Integer.toString(returnInput());
+		
+		System.out.println();
+		System.out.println("Searching for " + str + "...");
+		searchPeople("Matt Bulley", personList);
+		System.out.println();
+		contents();
+		selectChapter();
+	}
+
+	public static void chapter16() {
+		System.out.println("			(16) -- Garage");
+		System.out.println("\r\n" + 
+				"         _              _                   _           _                   _              _      \r\n" + 
+				"        /\\ \\           / /\\                /\\ \\        / /\\                /\\ \\           /\\ \\    \r\n" + 
+				"       /  \\ \\         / /  \\              /  \\ \\      / /  \\              /  \\ \\         /  \\ \\   \r\n" + 
+				"      / /\\ \\_\\       / / /\\ \\            / /\\ \\ \\    / / /\\ \\            / /\\ \\_\\       / /\\ \\ \\  \r\n" + 
+				"     / / /\\/_/      / / /\\ \\ \\          / / /\\ \\_\\  / / /\\ \\ \\          / / /\\/_/      / / /\\ \\_\\ \r\n" + 
+				"    / / / ______   / / /  \\ \\ \\        / / /_/ / / / / /  \\ \\ \\        / / / ______   / /_/_ \\/_/ \r\n" + 
+				"   / / / /\\_____\\ / / /___/ /\\ \\      / / /__\\/ / / / /___/ /\\ \\      / / / /\\_____\\ / /____/\\    \r\n" + 
+				"  / / /  \\/____ // / /_____/ /\\ \\    / / /_____/ / / /_____/ /\\ \\    / / /  \\/____ // /\\____\\/    \r\n" + 
+				" / / /_____/ / // /_________/\\ \\ \\  / / /\\ \\ \\  / /_________/\\ \\ \\  / / /_____/ / // / /______    \r\n" + 
+				"/ / /______\\/ // / /_       __\\ \\_\\/ / /  \\ \\ \\/ / /_       __\\ \\_\\/ / /______\\/ // / /_______\\   \r\n" + 
+				"\\/___________/ \\_\\___\\     /____/_/\\/_/    \\_\\/\\_\\___\\     /____/_/\\/___________/ \\/__________/   \r\n" + 
+				"                                                                                                  \r\n" + 
+				"");
+		System.out.println("");
+		System.out.println("Using Vehicle as a base class, create three derived classes (car, motorcycle etc.),\r\n" + 
+				"each derived class should have its own individual attribute in addition to the normal\r\n" + 
+				"Vehicle attributes that it inherits.\r\n" + 
+				"Using a List implementation store all your vehicles in a Garage class (e.g. ArrayList)\r\n" + 
+				"Create a method in Garage that iterates through each Vehicle, calculating a bill for\r\n" + 
+				"each type of Vehicle in a different way, depending on the type of vehicle it is.\r\n" + 
+				"Garage should have methods that add Vehicle, remove Vehicle(s) (By ID, By Vehicle\r\n" + 
+				"Type) fix Vehicle (Calculate bill) and empty the garage.");
+		
+		returnInput();
+		System.out.println("");
+		System.out.println("Creating vehicles...");
+		Car car1 = new Car();
+		car1.typeOfVehicle = "Car";
+		car1.numberOfDoors = 3;
+		car1.numberOfWheels = 4;
+		
+		
+		Motorcycle motorCycle1 = new Motorcycle();
+		motorCycle1.typeOfVehicle = "Bike";
+		motorCycle1.numberOfDoors = 0;
+		motorCycle1.numberOfWheels = 2;
+		
+		Bus bus1 = new Bus();
+		bus1.typeOfVehicle = "Bus";
+		bus1.numberOfDoors = 1;
+		bus1.numberOfWheels = 8;
+		
+		Garage garage = new Garage();
+		garage.vehicles[0] = car1;
+		garage.vehicles[1] = motorCycle1;
+		garage.vehicles[2] = bus1;
+		
+		returnInput();
+		System.out.println("");
+		garage.calculateBill();
+		System.out.println("");
+		System.out.println("...Creating Vehicle");
+		Vehicle honda = garage.addVehicle(786543, "Car", "7XB3 532");
+		returnInput();
+		System.out.println("");
+		System.out.println("direct reference...");
+		System.out.println("ID: " + honda.ID + " Type: " + honda.type + " License: " + honda.licensePlate);
+		returnInput();
+		System.out.println("");
+		System.out.println("referenced from garage array...");
+		System.out.println("ID: " + garage.vehicles[3].ID + " Type: " + garage.vehicles[3].type + " License: " + garage.vehicles[3].licensePlate);
+		returnInput();
+		System.out.println("");
+		System.out.println("removing...");
+		garage.removeVehicle(786543, garage.vehicles);
+		if(garage.vehicles[3] != null)
+			System.out.println("ID: " + garage.vehicles[3].ID + " Type: " + garage.vehicles[3].type + " License: " + garage.vehicles[3].licensePlate);
+		else
+			System.out.println("vehicle removed");
+		
+		returnInput();
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Calculating bill for index 2");
+		System.out.println(garage.fixVehicle(786543, garage.vehicles, 2));
+		
+		returnInput();
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Emptying Garage...");
+		garage.emptyGarage(garage.vehicles);
+		for(int i = 0; i < garage.vehicles.length; i++) {
+			if(garage.vehicles[i] == null)
+				System.out.println(" (" + i + ") is empty!");
+		}
+		
+		System.out.println("");
 		contents();
 		selectChapter();
 	}
