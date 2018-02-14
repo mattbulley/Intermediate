@@ -34,20 +34,18 @@ public class PaintWizard {
 		System.out.println("DuluxourousPaints is the cheapest!");
 		System.out.println("What dimensions are your room? ... ");
 		System.out.println("Width: ");
-		Scanner s = new Scanner(System.in);
-		int dimensionsWidth = s.nextInt();
+		
+		int dimensionsWidth = Main.returnInput();
 		System.out.println("Height: ");
-		int dimensionsHeight = s.nextInt();
+		int dimensionsHeight = Main.returnInput();
 		System.out.println("Depth: ");
-		int dimensionsDepth = s.nextInt();
+		int dimensionsDepth = Main.returnInput();
 		
-		System.out.println("Dimensions Correct?(1 or 0) : " + dimensionsWidth + " x " + dimensionsHeight + " x " + dimensionsDepth);
 		
-		int yes = s.nextInt();
-		if(yes == 1) {
+		
 			total = ((dimensionsWidth * dimensionsHeight) * 2) + ((dimensionsDepth * dimensionsHeight) * 2);
 			System.out.println("Total area = " + total);
-		}
+		
 		
 		for(int i = 0; i < paints.length; i++)
 		{
@@ -57,7 +55,7 @@ public class PaintWizard {
 			System.out.println((calc[i] / total)  + " buckets of paint.");
 		}
 		
-		s.close();
+		
 		return;
 	}
 	
